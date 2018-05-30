@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Contains entity_subscriptions.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function entity_subscriptions_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the entity_subscriptions module.
+    case 'help.page.entity_subscriptions':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Notify to the authenticated user when there is a change in the subscribed content type.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function entity_subscriptions_theme() {
+  return [
+    'entity_subscriptions' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/*function entity_subscriptions_form_node_type_form_alter(&$form, &$form_state, $form_id){
+  $form['entity_subscriptions'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Default Send subscriptions notifications options for'),
+    '#weight' => 0,
+    '#collapsible' => TRUE,
+    '#collapsed' => !$default_value,
+   // '#group' => 'publishing options',
+    
+  );
+}*/
+ if (!$multiple) {
+      $form_fragment[$prefix . 'entity_subscriptions_index_content'] = [
+        '#type' => 'radios',
+        '#default_value' => $settings['index'],
+        '#options' => [
+          0 => $this->getEntityCategory() === 'instance'
+            ? $this->t('Do not index this @bundle entity', ['@bundle' => $bundle_name])
+            : $this->t('Do not index entities of this type'),
+          1 => $this->getEntityCategory() === 'instance'
+            ? $this->t('Index this @bundle entity', ['@bundle' => $bundle_name])
+            : $this->t('Index entities of this type'),
+        ],
+      ];
+
+      if ($this->getEntityCategory() === 'instance' && isset($bundle_settings['index'])) {
+        $form_fragment[$prefix . 'entity_subscriptions_index_content']['#options'][$bundle_settings['index']] .= ' <em>(' . $this->t('default') . ')</em>';
+      }
+    }
+

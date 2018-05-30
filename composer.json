@@ -1,0 +1,14 @@
+{
+  "name": "drupal/entity_subscriptions",
+  "type": "drupal-module",
+  "description": "Notify to the authenticated user when there is a change in the subscribed content type.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/entity_subscriptions",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/entity_subscriptions",
+    "source": "http://cgit.drupalcode.org/entity_subscriptions"
+  },
+  "require": { }
+}

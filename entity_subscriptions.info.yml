@@ -1,0 +1,5 @@
+name: 'Entity Subscriptions'
+type: module
+description: 'Notify to the authenticated user when there is a change in the subscribed content type.'
+core: 8.x
+package: 'Custom'
